@@ -2,8 +2,7 @@
 
 Personal portfolio website showcasing my AI/ML projects, work experience, and skills.
 
-🔗 **Live site:** https://github.com/snehagondinigari24-lab/Sneha_Portfolio
-
+🔗 **Live site:** https://snehagondinigari24-lab.github.io/Sneha_Portfolio/portfolio.html
 ## About
 
 Final-year Computer Science Engineering student (CGPA 9.13) with hands-on AI/ML and SAP internship experience. I build Python applications using LangChain, Retrieval-Augmented Generation (RAG), and LLM APIs.
