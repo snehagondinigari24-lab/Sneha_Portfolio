@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sneha Gondinigari — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF9F6;
+    --panel: #FFFFFF;
+    --line: #E4E1DA;
+    --text: #22262B;
+    --text-dim: #626A75;
+    --accent: #1F4E44;
+    --accent-2: #C97A4A;
+    --accent-soft: #E9F1EE;
+    --serif: 'Lora', serif;
+    --sans: 'Inter', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.65;
+  }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--accent-soft);color:var(--accent);}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw;
+    background:rgba(250,249,246,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{font-family:var(--serif);font-weight:600;font-size:18px;}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{font-size:13.5px;color:var(--text-dim);letter-spacing:0.2px;transition:color .2s;position:relative;padding-bottom:2px;}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1.5px;background:var(--accent-2);transition:width .25s;}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-links a:hover::after{width:100%;}
+  @media (max-width:760px){.nav-links{display:none;}}
+
+  /* ---------- CONTAINER ---------- */
+  .wrap{max-width:820px;margin:0 auto;padding:0 6vw;}
+
+  /* ---------- HEADER / HERO ---------- */
+  header.hero{
+    padding:76px 0 54px;border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  header.hero::before{
+    content:'';
+    position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+    width:100vw;height:100%;
+    background:
+      radial-gradient(500px circle at 15% 0%, rgba(31,78,68,0.06), transparent 60%),
+      radial-gradient(400px circle at 90% 30%, rgba(201,122,74,0.07), transparent 60%);
+    z-index:-1;
+  }
+  .hero-row{display:flex;gap:36px;align-items:center;flex-wrap:wrap;}
+  .photo-wrap{
+    width:136px;height:136px;border-radius:50%;
+    overflow:hidden;flex-shrink:0;
+    border:3px solid var(--panel);
+    background:var(--panel);
+    box-shadow:0 0 0 1px var(--line), 0 12px 28px -8px rgba(31,78,68,0.35);
+  }
+  .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo-placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    color:var(--text-dim);font-size:11px;text-align:center;padding:10px;
+  }
+  .hero-title{flex:1;min-width:260px;}
+  .eyebrow{
+    font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent-2);
+    text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent-2);}
+  h1{
+    font-family:var(--serif);
+    font-size:clamp(30px,4.5vw,44px);
+    font-weight:700;
+    letter-spacing:-0.3px;
+    margin-bottom:6px;
+  }
+  .role-line{color:var(--accent);font-size:16.5px;font-weight:500;margin-bottom:14px;}
+  .contact-line{color:var(--text-dim);font-size:13.5px;display:flex;flex-wrap:wrap;align-items:center;gap:16px;}
+  .contact-line a{transition:color .2s;}
+  .contact-line a:hover{color:var(--accent);}
+  .icon-link{display:inline-flex;align-items:center;gap:6px;}
+  .icon-link svg{width:16px;height:16px;fill:currentColor;}
+  .hero-summary{margin-top:26px;color:var(--text-dim);font-size:15.5px;max-width:680px;}
+  .hero-summary b{color:var(--text);font-weight:600;}
+  .btn-row{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+  .btn{
+    font-size:13.5px;font-weight:500;
+    padding:12px 24px;border-radius:7px;
+    border:1px solid var(--line);
+    transition:all .2s;
+  }
+  .btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 16px -6px rgba(31,78,68,0.5);}
+  .btn-primary:hover{background:#173b34;transform:translateY(-2px);box-shadow:0 10px 20px -6px rgba(31,78,68,0.55);}
+  .btn-ghost{color:var(--text);background:var(--panel);}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:60px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-title{
+    font-family:var(--serif);
+    font-size:23px;font-weight:600;
+    margin-bottom:34px;
+    display:flex;align-items:baseline;gap:10px;
+  }
+  .section-title::before{
+    content:'';width:22px;height:3px;border-radius:2px;
+    background:var(--accent-2);flex-shrink:0;
+    transform:translateY(-4px);
+  }
+  .section-title::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  /* ---------- SKILLS ---------- */
+  .skills-groups{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  .skill-group{
+    border:1px solid var(--line);border-radius:12px;
+    padding:20px;background:var(--panel);
+    transition:all .2s;
+  }
+  .skill-group:hover{border-color:var(--accent);box-shadow:0 8px 20px -10px rgba(31,78,68,0.2);transform:translateY(-2px);}
+  .skill-group h4{
+    font-size:12px;color:var(--accent-2);margin-bottom:14px;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.6px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .skill-group h4::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent-2);}
+  .tag-list{display:flex;flex-direction:column;gap:9px;}
+  .tag{
+    font-size:13.5px;color:var(--text);
+    padding:0;border:none;background:none;border-radius:0;
+    display:flex;align-items:center;gap:8px;
+    transition:color .2s;
+  }
+  .tag::before{content:'—';color:var(--line);font-weight:600;}
+  .tag:hover{color:var(--accent);}
+  @media (max-width:760px){.skills-groups{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.skills-groups{grid-template-columns:1fr;}}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-item{display:grid;grid-template-columns:160px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line);}
+  .exp-item:first-of-type{border-top:none;}
+  .exp-date{color:var(--text-dim);font-size:13px;}
+  .exp-role{font-family:var(--serif);font-size:17.5px;font-weight:600;}
+  .exp-org{color:var(--accent);font-size:13.5px;margin-bottom:10px;font-weight:500;}
+  .exp-item ul{color:var(--text-dim);font-size:14px;padding-left:18px;}
+  .exp-item li{margin-bottom:6px;}
+  .exp-item li::marker{color:var(--accent-2);}
+  @media (max-width:600px){.exp-item{grid-template-columns:1fr;gap:6px;}}
+
+  /* ---------- PROJECTS ---------- */
+  .project-card{
+    border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:10px;padding:26px;background:var(--panel);margin-bottom:18px;
+    transition:all .2s;
+    box-shadow:0 1px 2px rgba(0,0,0,0.02);
+  }
+  .project-card:hover{
+    box-shadow:0 12px 24px -12px rgba(31,78,68,0.25);
+    transform:translateY(-3px);
+    border-left-color:var(--accent-2);
+  }
+  .project-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+  .project-title{font-family:var(--serif);font-size:18px;font-weight:600;}
+  .project-link{font-size:12.5px;color:var(--accent);white-space:nowrap;font-weight:500;}
+  .project-link:hover{text-decoration:underline;}
+  .project-desc{color:var(--text-dim);font-size:14px;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-item{padding:16px 0;border-top:1px solid var(--line);}
+  .edu-item:first-of-type{border-top:none;}
+  .edu-item .school{font-weight:600;font-size:15px;}
+  .edu-item .detail{color:var(--accent);font-size:13.5px;margin-top:2px;font-weight:500;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-box{
+    text-align:center;padding:48px 32px;
+    background:linear-gradient(135deg, var(--accent-soft), #FBF3EC);
+    border-radius:16px;border:1px solid var(--line);
+  }
+  .contact-box .section-title{justify-content:center;margin-bottom:14px;}
+  .contact-box .section-title::before, .contact-box .section-title::after{display:none;}
+  .contact-box p{color:var(--text-dim);margin-bottom:26px;font-size:15px;}
+  footer{text-align:center;padding:34px 6vw;color:var(--text-dim);font-size:12px;}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Sneha Gondinigari</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-row">
+      <div class="photo-wrap">
+        <!-- Replace with: <img src="photo.jpg" alt="Sneha Gondinigari"> -->
+        <img src="https://i.postimg.cc/HsdVTb61/sneha.jpg" alt="Sneha Gondinigari">
+      </div>
+      <div class="hero-title">
+        <div class="eyebrow">Open to Full-Time &amp; Internship Roles</div>
+        <h1>Sneha Gondinigari</h1>
+        <div class="role-line">AI/ML Engineer &amp; Final-Year CS Student</div>
+        <div class="contact-line">
+          <span>Tirupati, Andhra Pradesh, India</span>
+          <a href="mailto:snehagondinigari@gmail.com">snehagondinigari@gmail.com</a>
+          <span>+91 7842780354</span>
+          <a class="icon-link" href="https://linkedin.com/in/sneha-gondinigari-8338b12b7" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+            LinkedIn
+          </a>
+          <a class="icon-link" href="https://github.com/snehagondinigari24-lab" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.2c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.56 2.36 1.11 2.93.85.09-.66.35-1.11.64-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05a9.28 9.28 0 0 1 5 0c1.9-1.33 2.74-1.05 2.74-1.05.56 1.41.21 2.46.1 2.72.65.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.79-4.58 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.2 10.2 0 0 0 22 12.2C22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="hero-summary">
+      Final-year <b>Computer Science Engineering</b> student (CGPA 9.13) with hands-on AI/ML and SAP internship experience.
+      I build Python applications using <b>LangChain, Retrieval-Augmented Generation (RAG), and LLM APIs</b> — designing
+      end-to-end systems from data ingestion through model integration. Looking for full-time roles and internships
+      in AI/ML and software development.
+    </p>
+    <div class="btn-row">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </header>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-groups">
+      <div class="skill-group">
+        <h4>AI / NLP</h4>
+        <div class="tag-list">
+          <span class="tag">LangChain</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Groq &amp; OpenAI APIs</span>
+          <span class="tag">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Programming &amp; Data</h4>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Pandas &amp; NumPy</span>
+          <span class="tag">Scikit-learn</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Web &amp; Tools</h4>
+        <div class="tag-list">
+          <span class="tag">Streamlit</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Git &amp; GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-date">Mar 2025 – Jun 2025<br>Remote</div>
+      <div>
+        <div class="exp-role">Python Development Intern</div>
+        <div class="exp-org">Infotact Solutions</div>
+        <ul>
+          <li>Developed Python-based AI applications and automation pipelines using LangChain, Groq API, and Streamlit</li>
+          <li>Delivered 4+ intelligent application projects using modular Python design, REST API integration, and agile collaboration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">6 Months<br>Remote</div>
+      <div>
+        <div class="exp-role">SAP Intern</div>
+        <div class="exp-org">PwC</div>
+        <ul>
+          <li>Gained hands-on exposure to ERP processes, SAP modules, and business process configuration</li>
+          <li>Collaborated with cross-functional teams on SAP-related tasks using structured problem-solving</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-title">OptiCrop — AI/ML Crop Optimization System</div>
+        <a class="project-link" href="https://github.com/snehagondinigari24-lab/OPTICROP" target="_blank">View on GitHub →</a>
+      </div>
+      <p class="project-desc">Trained ML models on soil, weather, and crop datasets to recommend optimal crops and predict yield through an interactive Streamlit interface.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-title">RAG-Based SOP Assistant</div>
+        <a class="project-link" href="https://github.com/snehagondinigari24-lab/rag-sop-assistant" target="_blank">View on GitHub →</a>
+      </div>
+      <p class="project-desc">A Retrieval-Augmented Generation system using FAISS vector search and OpenAI embeddings, delivering source-cited answers to natural-language queries over SOP documents.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-title">StatBot Pro — CSV Data Analyst Agent</div>
+        <a class="project-link" href="https://github.com/snehagondinigari24-lab/CSV-agent" target="_blank">View on GitHub →</a>
+      </div>
+      <p class="project-desc">A conversational agent built on LangChain + Groq's llama-3.3-70b that answers natural-language questions about CSV data with instant chart generation. Iterated across 6 versions.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-title">Outreach Automation Engine</div>
+        <a class="project-link" href="#" target="_blank">View repository →</a>
+      </div>
+      <p class="project-desc">A B2B cold-outreach pipeline that auto-generates personalized emails for 100+ leads via Groq's llama-3.3-70b, with a live Google Sheets lead database and a real-time tracking dashboard.</p>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="edu-item">
+      <div class="school">B.Tech, Computer Science &amp; Engineering — Sri Venkateshwara College of Engineering, Tirupati</div>
+      <div class="detail">Final Year | CGPA: 9.13</div>
+    </div>
+    <div class="edu-item">
+      <div class="school">Intermediate — Sri Chaitanya Junior College</div>
+      <div class="detail">962/1000 (2021–2023)</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-box">
+      <h2 class="section-title" style="justify-content:center;"><span style="flex:none;">Let's Connect</span></h2>
+      <p>Open to full-time roles and internships in AI/ML &amp; software development.</p>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="mailto:snehagondinigari@gmail.com" class="btn btn-primary">Email Me</a>
+        <a href="https://linkedin.com/in/sneha-gondinigari-8338b12b7" target="_blank" class="btn btn-ghost icon-link">
+          <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Tirupati, Andhra Pradesh, India</footer>
+
+</body>
+</html>
