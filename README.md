@@ -2,7 +2,7 @@
 
 Personal portfolio website showcasing my AI/ML projects, work experience, and skills.
 
-🔗 **Live site:** https://snehagondinigari24-lab.github.io/portfolio/
+🔗 **Live site:** https://github.com/snehagondinigari24-lab/Sneha_Portfolio
 
 ## About
 
